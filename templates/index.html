@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Household Occupancy Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Household Occupancy Prediction</h1>
+        <form method="POST" action="/predict" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Upload Dataset (CSV)</label>
+                <input type="file" name="file" id="file" accept=".csv" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        {% if precision is not none %}
+            <div class="result">
+                <h2>Precision: {{ precision }}</h2>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
